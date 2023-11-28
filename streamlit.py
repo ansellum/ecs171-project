@@ -17,7 +17,13 @@ st.sidebar.header('User Input Parameters')
 def user_input_features():
     cap_shape = st.sidebar.selectbox(
         'Select a cap shape',
-        options=['b','c','x','f','k','s'])
+        options=['b','c','x','f','k','s'],
+		help="  b: bell\n\
+			    c: conical\n\
+				x: convex\n\
+				f: flat\n\
+				k: knobbed\n\
+				s: sunken")
     cap_surface = st.sidebar.selectbox(
         'Select a cap surface',
         options=['f','g','y','s'])
