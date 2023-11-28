@@ -164,11 +164,8 @@ rbf.fit(X_train_enc, y_train_enc)
 
 input_pre = prepare_new_input(user_input, xoe, xscaler)
 pred = rbf.predict(input_pre)
-pred_proba = rbf.predict(input_pre)
 
 # st.subleader('Class labels and their corresponding index number')
 # st.write(df2.target_names)
 st.subheader('Prediction')
 st.write(pred)
-st.subheader('Prediction Probability')
-st.write(pred_proba)
