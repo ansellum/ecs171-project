@@ -1,6 +1,4 @@
 from sklearn.neural_network import MLPClassifier
-import numpy as np
-from sklearn.model_selection import GridSearchCV
 import pandas as pd
 from pandas import read_csv
 from sklearn.model_selection import train_test_split
@@ -8,6 +6,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OrdinalEncoder
 from sklearn import preprocessing
 import streamlit as st
+
 st.write("""
 # Mushroom Toxicity Prediction
 
@@ -117,6 +116,7 @@ def prepare_new_input(df,oe,scaler):
     # Apply the min-max scaler
     df_rescaled = scaler.transform(df_encoded)
     return df_rescaled
+
 # load the dataset
 def load_dataset(filename, column):
     # load the dataset as a pandas DataFrame
