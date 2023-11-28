@@ -22,7 +22,7 @@ def user_input_features():
     cap_surface = st.sidebar.selectbox(
         'Select a cap surface',
         options=['f','g','y','s'],
-		help="fibrous=f,grooves=g, scaly=y, smooth=s")
+		help="fibrous=f, grooves=g, scaly=y, smooth=s")
     cap_color = st.sidebar.selectbox(
         'Select a cap color',
         options=['n','b','c','g','r','p','u','e','w','y'],
