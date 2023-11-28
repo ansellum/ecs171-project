@@ -11,6 +11,7 @@ st.write("""
 # Mushroom Toxicity Prediction
 
 This app predicts whether a mushroom is toxic or edible!
+(Note: this app does not constitute actual medical advice, it is only meant for educational use)
 """)
 st.sidebar.header('User Input Parameters')
 
@@ -191,6 +192,6 @@ pred = rbf.predict(input_pre)
 st.subheader('Prediction')
 st.write(pred)
 
-message = "Your mushroom is NOT poisonous!" if pred == 0 else "CAREFUL! Your mushroom is poisonous!"
+message = "Congrats! This mushroom is NOT poisonous!" if pred == 0 else "CAREFUL! This mushroom is poisonous!"
 
 st.write(message)
