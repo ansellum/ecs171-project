@@ -190,3 +190,7 @@ pred = rbf.predict(input_pre)
 # st.write(df2.target_names)
 st.subheader('Prediction')
 st.write(pred)
+
+message = "Your mushroom is NOT poisonous!" if pred == 0 else "CAREFUL! Your mushroom is poisonous!"
+
+st.write(message)
