@@ -187,7 +187,7 @@ rbf = svm.SVC(kernel='rbf', gamma=0.5).fit(X_train_enc, y_train_enc)
 rbf.fit(X_train_enc, y_train_enc)
 # pred = mlp.predict(X_test_enc)
 
-if (user_input.isnull()):
+if (user_input.isnull().sum().any()):
     st.write("Enter some data!")
 else:
     input_pre = prepare_new_input(user_input, xoe, xscaler)
