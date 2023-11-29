@@ -20,87 +20,129 @@ def user_input_features():
     cap_shape = st.sidebar.selectbox(
         'Select a cap shape',
         options=['b','c','x','f','k','s'],
-		help="bell=b, conical=c, convex=x, flat=f, knobbed=k, sunken=s")
+		help="bell=b, conical=c, convex=x, flat=f, knobbed=k, sunken=s",
+		index = None,
+		placeholder = "Select an option...")
     cap_surface = st.sidebar.selectbox(
         'Select a cap surface',
         options=['f','g','y','s'],
-		help="fibrous=f, grooves=g, scaly=y, smooth=s")
+		help="fibrous=f, grooves=g, scaly=y, smooth=s",
+		index = None,
+		placeholder = "Select an option...")
     cap_color = st.sidebar.selectbox(
         'Select a cap color',
         options=['n','b','c','g','r','p','u','e','w','y'],
-		help="brown=n, buff=b, cinnamon=c, gray=g, green=r, pink=p, purple=u, red=e, white=w, yellow=y")
+		help="brown=n, buff=b, cinnamon=c, gray=g, green=r, pink=p, purple=u, red=e, white=w, yellow=y",
+		index = None,
+		placeholder = "Select an option...")
     bruises = st.sidebar.selectbox(
         'Select bruises',
         options=['t','f'],
-		help="true=t, false=f")
+		help="true=t, false=f",
+		index = None,
+		placeholder = "Select an option...")
     odor = st.sidebar.selectbox(
         'Select an odor',
         options=['a','l','c','y','f','m','n','p','s'],
-		help="almond=a, anise=l, creosote=c, fishy=y, foul=f, musty=m, none=n, pungent=p, spicy=s")
+		help="almond=a, anise=l, creosote=c, fishy=y, foul=f, musty=m, none=n, pungent=p, spicy=s",
+		index = None,
+		placeholder = "Select an option...")
     gill_attachment = st.sidebar.selectbox(
         'Select a gill attachment',
         options=['a','f'],
-		help="attached=a, free=f") # removed 2
+		help="attached=a, free=f",
+		index = None,
+		placeholder = "Select an option...") # removed 2
     gill_spacing = st.sidebar.selectbox(
         'Select a gill spacing',
         options=['c','w'],
-		help="close=c, crowded=w,") # removed d
+		help="close=c, crowded=w,",
+		index = None,
+		placeholder = "Select an option...") # removed d
     gill_size = st.sidebar.selectbox(
         'Select a gill_size',
         options=['b','n'],
-		help="broad=b, narrow=n")
+		help="broad=b, narrow=n",
+		index = None,
+		placeholder = "Select an option...")
     gill_color = st.sidebar.selectbox(
         'Select a gill color',
         options=['k','n','b','h','g','r','o','p','u','e','w','y'],
-		help="black=k, brown=n, buff=b, chocolate=h, gray=g,  green=r, orange=o, pink=p, purple=u, red=e, white=w, yellow=y")
+		help="black=k, brown=n, buff=b, chocolate=h, gray=g,  green=r, orange=o, pink=p, purple=u, red=e, white=w, yellow=y",
+		index = None,
+		placeholder = "Select an option...")
     stalk_shape = st.sidebar.selectbox(
         'Select a stalk shape',
         options=['e','t'],
-		help="enlarging=e, tapering=t")
+		help="enlarging=e, tapering=t",
+		index = None,
+		placeholder = "Select an option...")
     stalk_root = st.sidebar.selectbox(
         'Select a stalk root',
         options=['e','c','b','r','?'],
-		help="bulbous=b, club=c, cup=u, equal=e, rhizomorphs=z, rooted=r, missing=?")
+		help="bulbous=b, club=c, cup=u, equal=e, rhizomorphs=z, rooted=r, missing=?",
+		index = None,
+		placeholder = "Select an option...")
     stalk_surface_above_ring = st.sidebar.selectbox(
         'Select a stalk surface above ring',
         options=['f','y','k','s'],
-		help="fibrous=f, scaly=y, silky=k, smooth=s")
+		help="fibrous=f, scaly=y, silky=k, smooth=s",
+		index = None,
+		placeholder = "Select an option...")
     stalk_surface_below_ring = st.sidebar.selectbox(
         'Select a stalk surface below ring',
         options=['f','y','k','s'],
-		help="fibrous=f, scaly=y, silky=k, smooth=s")
+		help="fibrous=f, scaly=y, silky=k, smooth=s",
+		index = None,
+		placeholder = "Select an option...")
     stalk_color_above_ring = st.sidebar.selectbox(
         'Select a stalk color above ring',
         options=['n','b','c','g','o','p','e','w','y'],
-		help="brown=n, buff=b, cinnamon=c, gray=g, orange=o, pink=p, red=e, white=w, yellow=y")
+		help="brown=n, buff=b, cinnamon=c, gray=g, orange=o, pink=p, red=e, white=w, yellow=y",
+		index = None,
+		placeholder = "Select an option...")
     stalk_color_below_ring = st.sidebar.selectbox(
         'Select a stalk color below ring',
         options=['n','b','c','g','o','p','e','w','y'],
-		help="brown=n, buff=b, cinnamon=c, gray=g, orange=o, pink=p, red=e, white=w, yellow=y")
+		help="brown=n, buff=b, cinnamon=c, gray=g, orange=o, pink=p, red=e, white=w, yellow=y",
+		index = None,
+		placeholder = "Select an option...")
     veil_color = st.sidebar.selectbox(
         'Select a veil color',
         options=['n','o','w','y'],
-		help="brown=n, orange=o, white=w, yellow=y")
+		help="brown=n, orange=o, white=w, yellow=y",
+		index = None,
+		placeholder = "Select an option...")
     ring_number = st.sidebar.selectbox(
         'Select a ring number',
         options=['n','o','t'],
-		help="none=n, one=o, two=t")
+		help="none=n, one=o, two=t",
+		index = None,
+		placeholder = "Select an option...")
     ring_type = st.sidebar.selectbox(
         'Select a ring type',
         options=['p','e','l','f','n'],
-		help="evanescent=e, flaring=f, large=l, none=n, pendant=p, sheathing=s, zone=z")  # Removed 'c' not in training data
+		help="evanescent=e, flaring=f, large=l, none=n, pendant=p, sheathing=s, zone=z",
+		index = None,
+		placeholder = "Select an option...") # Removed 'c' not in training data
     spore_print_color = st.sidebar.selectbox(
         'Select a spore print color',
         options=['k','n','b','h','r','o','u','w','y'],
-		help="black=k, brown=n, buff=b, chocolate=h, green=r, orange=o, purple=u, white=w, yellow=y")
+		help="black=k, brown=n, buff=b, chocolate=h, green=r, orange=o, purple=u, white=w, yellow=y",
+		index = None,
+		placeholder = "Select an option...")
     population = st.sidebar.selectbox(
         'Select a population',
         options=['a','c','n','s','v','y'],
-		help="abundant=a, clustered=c, numerous=n, scattered=s, several=v, solitary=y")
+		help="abundant=a, clustered=c, numerous=n, scattered=s, several=v, solitary=y",
+		index = None,
+		placeholder = "Select an option...")
     habitat = st.sidebar.selectbox(
         'Select a habitat',
         options=['g','l','m','p','u','w','d'],
-		help="grasses=g, leaves=l, meadows=m, paths=p, urban=u, waste=w, woods=d")
+		help="grasses=g, leaves=l, meadows=m, paths=p, urban=u, waste=w, woods=d",
+		index = None,
+		placeholder = "Select an option...")
     data = {'cap-shape': cap_shape,
            'cap-surface': cap_surface,
             'cap-color': cap_color,
