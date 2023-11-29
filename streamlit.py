@@ -159,7 +159,17 @@ def user_input_features():
     features = pd.DataFrame(data, index=[0])
     return features
     
-    
+
+st.write("""
+# Mushroom Toxicity Prediction
+
+This app predicts whether a mushroom is toxic or edible!
+
+(Note: this app does not constitute actual medical advice, it is only meant for educational use)
+""")
+
+st.sidebar.header('User Input Parameters')
+
 user_input = user_input_features()
 
 # Function to prepare the new inputs
@@ -197,16 +207,6 @@ def prepare_targets(y):
 	le.fit(y)
 	y_enc = le.transform(y)
 	return y_enc
-
-st.write("""
-# Mushroom Toxicity Prediction
-
-This app predicts whether a mushroom is toxic or edible!
-
-(Note: this app does not constitute actual medical advice, it is only meant for educational use)
-""")
-st.sidebar.header('User Input Parameters')
-
 
 if (user_input.isnull().sum().any() == True):
     st.write("Enter some data!")
