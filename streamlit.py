@@ -159,19 +159,6 @@ def user_input_features():
     features = pd.DataFrame(data, index=[0])
     return features
     
-
-st.write("""
-# Mushroom Toxicity Prediction
-
-This app predicts whether a mushroom is toxic or edible!
-
-(Note: this app does not constitute actual medical advice, it is only meant for educational use)
-""")
-
-st.sidebar.header('User Input Parameters')
-
-user_input = user_input_features()
-
 # Function to prepare the new inputs
 def prepare_new_input(df,oe,scaler):
     # Apply the ordinal encoder
@@ -208,6 +195,23 @@ def prepare_targets(y):
 	y_enc = le.transform(y)
 	return y_enc
 
+st.write("""
+# Mushroom Toxicity Prediction
+
+This app predicts whether a mushroom is toxic or edible!
+
+(Note: this app does not constitute actual medical advice, it is only meant for educational use)
+""")
+
+st.sidebar.header('User Input Parameters')
+
+user_input = user_input_features()
+
+st.subheader('User Input Parameters')
+st.write(user_input)
+
+st.subheader('Prediction')
+
 if (user_input.isnull().sum().any() == True):
     st.write("Enter some data!")
 else:
@@ -228,15 +232,11 @@ else:
     rbf.fit(X_train_enc, y_train_enc)
     # pred = mlp.predict(X_test_enc)
 
-    st.subheader('User Input Parameters')
-    st.write(user_input)
-
     input_pre = prepare_new_input(user_input, xoe, xscaler)
     pred = rbf.predict(input_pre)
 
     # st.subleader('Class labels and their corresponding index number')
     # st.write(df2.target_names)
-    st.subheader('Prediction')
     st.write(pred)
 
     message = "Congrats! This mushroom is NOT poisonous!" if pred == 0 else "CAREFUL! This mushroom is poisonous!"
