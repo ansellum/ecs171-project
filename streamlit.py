@@ -7,15 +7,6 @@ from sklearn.preprocessing import OrdinalEncoder
 from sklearn import preprocessing
 import streamlit as st
 
-st.write("""
-# Mushroom Toxicity Prediction
-
-This app predicts whether a mushroom is toxic or edible!
-
-(Note: this app does not constitute actual medical advice, it is only meant for educational use)
-""")
-st.sidebar.header('User Input Parameters')
-
 def user_input_features():
     cap_shape = st.sidebar.selectbox(
         'Select a cap shape',
@@ -171,9 +162,6 @@ def user_input_features():
     
 user_input = user_input_features()
 
-st.subheader('User Input Parameters')
-st.write(user_input)
-
 # Function to prepare the new inputs
 def prepare_new_input(df,oe,scaler):
     # Apply the ordinal encoder
@@ -210,26 +198,39 @@ def prepare_targets(y):
 	y_enc = le.transform(y)
 	return y_enc
 
-# load the dataset
-X, y = load_dataset('mushrooms.csv', 'class')
-X = X.drop('veil-type', axis = 1)
+st.write("""
+# Mushroom Toxicity Prediction
 
-# prepare input data
-X_enc, xoe, xscaler = prepare_inputs(X)
-# prepare output data
-y_enc = prepare_targets(y)
+This app predicts whether a mushroom is toxic or edible!
 
-# split into train and test sets; 80/20 split
-X_train_enc, X_test_enc, y_train_enc, y_test_enc = train_test_split(X_enc, y_enc, test_size=0.2, random_state=1)
+(Note: this app does not constitute actual medical advice, it is only meant for educational use)
+""")
+st.sidebar.header('User Input Parameters')
 
-rbf = svm.SVC(kernel='rbf', gamma=0.5).fit(X_train_enc, y_train_enc)
-
-rbf.fit(X_train_enc, y_train_enc)
-# pred = mlp.predict(X_test_enc)
 
 if (user_input.isnull().sum().any() == True):
     st.write("Enter some data!")
 else:
+    # load the dataset
+    X, y = load_dataset('mushrooms.csv', 'class')
+    X = X.drop('veil-type', axis = 1)
+
+    # prepare input data
+    X_enc, xoe, xscaler = prepare_inputs(X)
+    # prepare output data
+    y_enc = prepare_targets(y)
+
+    # split into train and test sets; 80/20 split
+    X_train_enc, X_test_enc, y_train_enc, y_test_enc = train_test_split(X_enc, y_enc, test_size=0.2, random_state=1)
+
+    rbf = svm.SVC(kernel='rbf', gamma=0.5).fit(X_train_enc, y_train_enc)
+
+    rbf.fit(X_train_enc, y_train_enc)
+    # pred = mlp.predict(X_test_enc)
+
+    st.subheader('User Input Parameters')
+    st.write(user_input)
+
     input_pre = prepare_new_input(user_input, xoe, xscaler)
     pred = rbf.predict(input_pre)
 
